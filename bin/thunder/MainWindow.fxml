@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thunder.Controller">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="2.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="330.0" minWidth="10.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="2.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="50.0" minHeight="2.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="50.0" minHeight="2.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="50.0" minHeight="2.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="350.0" minHeight="100.0" prefHeight="350.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="50.0" minHeight="2.0" prefHeight="16.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <Label alignment="CENTER" text="下载地址:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <GridPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </GridPane.margin></Label>
+        <TextField fx:id="downloadUrlTextField" prefHeight="27.0" prefWidth="310.0" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+            <GridPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </GridPane.margin></TextField>
+        <Button mnemonicParsing="false" onAction="#paste_onClick" prefWidth="64.0" text="粘贴" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+            <GridPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </GridPane.margin>
+        </Button>
+        <Label text="文件路径:" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </GridPane.margin></Label>
+        <TextField fx:id="filenameTextField" prefHeight="28.0" prefWidth="310.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </GridPane.margin></TextField>
+        <Button mnemonicParsing="false" onAction="#selectFile_onClick" text="选择文件" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </GridPane.margin></Button>
+        <Label text="线程数:" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </GridPane.margin></Label>
+        <ComboBox fx:id="threadsCountCombobox" onAction="#threadsCount_TextChanged" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1" />
+                    <String fx:value="4" />
+                    <String fx:value="8" />
+                    <String fx:value="12" />
+                    <String fx:value="16" />
+                    <String fx:value="24" />
+                    <String fx:value="32" />
+                    <String fx:value="50" />
+                    <String fx:value="64" />
+                    <String fx:value="80" />
+                    <String fx:value="100" />
+                    <String fx:value="其他" />
+                </FXCollections>
+
+            </items>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <GridPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </GridPane.margin>
+        </ComboBox>
+        <Button mnemonicParsing="false" onAction="#startDownload_onClick" prefHeight="40.0" prefWidth="64.0" text="开始下载" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="10.0" right="10.0" />
+            </GridPane.margin></Button>
+      <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="64.0" text="停止下载" GridPane.columnIndex="2" GridPane.rowIndex="2" onAction="#stopDownload_onClick">
+         <GridPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </GridPane.margin>
+      </Button>
+        <TextArea fx:id="logTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+        <GridPane GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="5.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="5.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="5.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="5.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="3.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="5.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="总进度:" textAlignment="CENTER" GridPane.halignment="CENTER" />
+                <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="112.0" progress="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                <Label fx:id="progressBarText" text="\%" GridPane.columnIndex="2" GridPane.halignment="LEFT" />
+                <Label text="下载速度:" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                <Label fx:id="downloadSpeed" text="kb/s" GridPane.columnIndex="4" GridPane.halignment="LEFT" />
+                <Label text="用时:" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
+                <Label fx:id="totalTime" text="00:00:00" GridPane.columnIndex="6" GridPane.halignment="CENTER" />
+            </children>
+        </GridPane>
+    </children>
+</GridPane>
